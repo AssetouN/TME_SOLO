@@ -164,6 +164,15 @@ class SuperState ( object ):
         if self.ball.x>(GAME_WIDTH*(3.0/4))-10 :
             return True
         return False
+    @property
+    def can_att(self):
+        if self.id_team == 1:
+            if(self.ball.x < GAME_WIDTH/2 and self.ball.x > GAME_WIDTH/3):
+                return True
+            return False
+        if (self.ball.x > GAME_WIDTH/2 and self.ball.x < GAME_WIDTH*3/4):      
+            return True
+        return False
     
     def can_def2(self):
         if self.id_team == 1 :
