@@ -3,10 +3,6 @@ from soccersimulator import VolleySimulation, volley_show_simu
 from tools import * 
 import math
 
-BUT1 = Vector2D(GAME_WIDTH,GAME_HEIGHT)
-BUT2 = Vector2D(0,0)
-BUT3 = Vector2D(0,GAME_HEIGHT)
-BUT4 = Vector2D(GAME_WIDTH,0)
 
 class Echauffement(Strategy):
     def __init__(self):
