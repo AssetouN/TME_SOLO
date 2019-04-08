@@ -4,11 +4,11 @@ Nom du github AssetouN
 Q1.2
 Pour cette stratégie le but est d'envoyer le plus loin possible la balle de telle sorte que l'adversaire soit loin de cette dernière
 Si le joueur et l'adversaire sont éloignés, le joueur va faire un petit tir pour forcer l'adversaire à se rapprocher des filets pour venir récupérer la balle
-Sinon s'il sont proches, le joueur va essayer de dégager au maximum la balle en jouant sur la distance du terrain et un emplacement aléatoire de la balle en fonction de la position de l'adversaire
+Sinon s'ils sont proches, le joueur va essayer de dégager au maximum la balle en jouant sur la distance du terrain et un emplacement aléatoire de la balle en fonction de la position de l'adversaire
 
 1.3
 
-Pour la défenese, le but est de se rapproche de la balle et de la dégager le plus loin possibl, on agit lorsque la balle est dans notre camp$
+Pour la défense, le but est de se rapprocher de la balle et de la dégager le plus loin possible, on agit lorsque la balle est dans notre camp
 
 1.4
 Pour cela, j'ai établi un switch de stratégie:
@@ -16,5 +16,5 @@ Si la balle est dans mon camp je deviens défenseur
 sinon je suis attaquant
 
 
-1.5 pour le 2 vs 2 il y a un attaquant qui reste proche du filet et un défenseur donc le but est de faire la passe à l'attaquant s'ils sont proche, sinon il dégage la balle
+1.5 pour le 2 vs 2 il y a un attaquant qui reste proche du filet et un défenseur dans sa position de défense (à l'arrière du terrain) donc le but est de faire la passe à l'attaquant s'ils sont proches, sinon il dégage la balle
 
