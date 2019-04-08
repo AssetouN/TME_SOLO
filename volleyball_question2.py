@@ -14,22 +14,28 @@ class Attaque(Strategy):
         fct = SuperState(state, id_team, id_player)
         if(fct.peut_frapper()):
             if(fct.can_att):
-                if(fct.ennemi_proche().y > GAME_HEIGHT/2):
-                    return fct.shoot( 1.5*Vector2D((2-id_team)*GAME_WIDTH +8*(-1)**id_team ,random.randint(8,40) ) )
+                if(fct.player.distance(fct.ennemi_proche())< 10):
+                    if(fct.ennemi_proche().y > GAME_HEIGHT/2):
+                        return fct.shoot( Vector2D((2-id_team)*GAME_WIDTH +8*(-1)**id_team ,random.randint(10,30) ) )
+                    else:
+                        return fct.shoot( Vector2D((2-id_team)*GAME_WIDTH +8*(-1)**id_team ,random.randint(55,75) ) )
                 else:
-                    return fct.shoot( 1.5*Vector2D((2-id_team)*GAME_WIDTH +8*(-1)**id_team ,random.randint(45,80) ) )
+                    return fct.shoot_but()
             else:
                 return fct.pousse_ball()
         else:
             return fct.aller_vect
+        
+
         
         
 team1 = SoccerTeam(name="Team 1")
 team2 = SoccerTeam(name="Team 2")
 
 # Add players
-team2.add("kiwi",Attaque()) 
-team1.add("Est",Attaque()) 
+ 
+team2.add("Est",Attaque()) 
+team1.add("Ouest",Attaque()) 
 
 
 
