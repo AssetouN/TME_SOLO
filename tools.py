@@ -122,6 +122,10 @@ class SuperState ( object ):
     def aller_vers_balle(self):
         return self.aller(self.ball+self.ball_vitesse)
     
+    def mini_shoot(self):
+        SoccerAction(Vector2D(),(self.goalAdv- self.ball_position_future())) 
+        
+    
     def shoot(self,p):
         return SoccerAction(Vector2D(),0.1*(p-self.player))
     
@@ -148,7 +152,7 @@ class SuperState ( object ):
         return SoccerAction(Vector2D(),(p-self.player).norm_max(3))
     
     def frappe_position(self):
-        return abs((self.ball-self.goalAdv).x)<=45
+        return abs((self.ball-Vector2D(GAME_WIDTH/2,GAME_HEIGHT/2)).x)<=45
     
     @property
     def position_defenseur(self):
@@ -158,10 +162,10 @@ class SuperState ( object ):
     @property
     def can_def(self):
         if self.id_team == 1 :
-            if self.ball.x<(GAME_WIDTH/4.0)+10 :
+            if self.ball.x<(GAME_WIDTH/2) :
                 return True
             return False
-        if self.ball.x>(GAME_WIDTH*(3.0/4))-10 :
+        if self.ball.x>(GAME_WIDTH/2):
             return True
         return False
     @property
@@ -194,6 +198,12 @@ class SuperState ( object ):
         if(self.id_team == 1):
             return self.aller(Vector2D(GAME_HEIGHT/2, GAME_QUARTER))
         return self.aller(Vector2D(GAME_HEIGHT/2,GAME_THREE_QUARTER))
+    
+    def posi_att(self):
+        if(self.id_team == 1):
+            return self.aller(Vector2D(GAME_WIDTH/2-5,GAME_HEIGHT/2))
+        else:
+            return self.aller(Vector2D(GAME_WIDTH/2+5,GAME_HEIGHT/2))
 #====================================================================================================================================
 #                 Action Joueur    
     
